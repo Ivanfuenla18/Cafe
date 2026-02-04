@@ -26,6 +26,3 @@
 * **Vercel**: Plataforma de despliegue y CI/CD.
 
 
-   ```bash
-   git clone [https://github.com/Ivanfuenla18/Restaurants.git](https://github.com/Ivanfuenla18/Restaurants.git)
-   cd Restaurants
