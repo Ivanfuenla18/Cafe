@@ -1,9 +1,9 @@
-import UseMapApiLoader from "../hooks/useMapApiLoader";
+import useMapApiLoader from "../hooks/useMapApiLoader.jsx";
 import { GoogleMap } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 
 const MapContainer = () => {
-  const isLoaded = UseMapApiLoader();
+  const isLoaded = useMapApiLoader();
   const zoom = 15;
   const mapStyles = {
     height: "60vh",

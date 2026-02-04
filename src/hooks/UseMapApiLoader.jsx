@@ -2,7 +2,7 @@ import { useJsApiLoader } from "@react-google-maps/api";
 
 const lib = ["places"];
 
-const UseMapApiLoader = () => {
+const useMapApiLoader = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
@@ -12,4 +12,4 @@ const UseMapApiLoader = () => {
   return isLoaded;
 };
 
-export default UseMapApiLoader;
+export default useMapApiLoader;
