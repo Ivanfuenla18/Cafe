@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 
 const MapContainer = ({ onPlacesLoaded }) => {
   const isLoaded = UseMapApiLoader();
-  const [currentPosition, setCurrentPosition] = useState({
-    lat: 40.4168,
-    lng: -3.7038,
-  });
+  const [currentPosition, setCurrentPosition] = useState({ lat: 0, lng: 0 });
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -33,7 +30,7 @@ const MapContainer = ({ onPlacesLoaded }) => {
       fields: ["displayName", "location", "photos", "rating"],
       includedPrimaryTypes: ["cafe"],
       locationRestriction: { center: currentPosition, radius: 1500 },
-      maxResultCount: 8,
+      maxResultCount: 10,
     };
 
     const { places } = await Place.searchNearby(request);
@@ -57,7 +54,7 @@ const MapContainer = ({ onPlacesLoaded }) => {
     <div className="mapContainer">
       <GoogleMap
         center={currentPosition}
-        zoom={15}
+        zoom={14}
         mapContainerStyle={{ height: "40vh", width: "90%", margin: "0 auto" }}
         onLoad={handdleOnLoadMap}
         options={{ mapId: "DEMO_MAP_ID" }}

@@ -20,7 +20,6 @@ body {
   justify-content: center;
   margin-top: 20px;
 }
-
 .cafeCard {
   color: #ffffff;
 
@@ -33,7 +32,10 @@ body {
   background-color: #1e1e1e;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.cafeCard p {
+  color: yellow;
+}
 .cafeCard:hover {
   transform: scale(1.05);
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
 }
