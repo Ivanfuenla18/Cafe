@@ -1,4 +1,5 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import CafeInfo from "./pages/CafeInfo.jsx";
 import MapContainer from "./components/MapContainer.jsx";
 import { useState } from "react";
 import CafeCard from "./components/CafeCard.jsx";
@@ -6,19 +7,27 @@ import CafeCard from "./components/CafeCard.jsx";
 function App() {
   const [restaurantes, setRestaurantes] = useState([]);
   return (
-    <>
-      <h3 className="titleRestaurant">Cafeterias cercanas a tu ubicación</h3>
+    <Routes>
+      {/* RUTA PRINCIPAL (Lo que ya tienes) */}
+      <Route
+        path="/"
+        element={
+          <>
+            <h3 className="titleRestaurant">Cafeterias cercanas</h3>
+            <div className="cardsContainer">
+              {restaurantes.map((item, index) => (
+                <CafeCard key={item.id || index} data={item} />
+              ))}
+            </div>
+            <h3 className="titleRestaurant">Tu ubicacíon actual</h3>
+            <MapContainer onPlacesLoaded={setRestaurantes} />
+          </>
+        }
+      />
 
-      <div className="cardsContainer">
-        {restaurantes.map((item, index) => (
-          // Usamos el index o el id si existe para la key
-          <CafeCard key={index} data={item} />
-        ))}
-      </div>
-
-      <h3 className="titleRestaurant">Ubicaciones</h3>
-      <MapContainer onPlacesLoaded={setRestaurantes} />
-    </>
+      {/* RUTA DE DETALLES */}
+      <Route path="/detalles" element={<CafeInfo />} />
+    </Routes>
   );
 }
 

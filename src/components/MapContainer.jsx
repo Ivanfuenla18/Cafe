@@ -34,18 +34,7 @@ const MapContainer = ({ onPlacesLoaded }) => {
     };
 
     const { places } = await Place.searchNearby(request);
-
-    if (places && places.length > 0) {
-      if (onPlacesLoaded) onPlacesLoaded(places);
-
-      places.forEach((place) => {
-        new AdvancedMarkerElement({
-          map: instanceMap,
-          position: { lat: place.location.lat(), lng: place.location.lng() },
-          title: place.displayName,
-        });
-      });
-    }
+    onPlacesLoaded(places);
   };
 
   if (!isLoaded) return <div>Cargando mapa....</div>;
